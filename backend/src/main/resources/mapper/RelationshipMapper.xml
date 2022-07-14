@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.mapper.RelationshipMapper">
+
+    <select id="GetRelationshipsByUserName" resultType="String">
+        select patientname
+        from relationship_tab
+        where username = #{username}
+    </select>
+
+    <select id="GetRelationship" resultType="Relationship">
+        select *
+        from relationship_tab
+        where username = #{username} and patientname = #{patientname}
+    </select>
+
+    <insert id="NewRelationship">
+        INSERT INTO relationship_tab
+        (patientname, username)
+        VALUES
+        (#{patientname}, #{username});
+    </insert>
+</mapper>

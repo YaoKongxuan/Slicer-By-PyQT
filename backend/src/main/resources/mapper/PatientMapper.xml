@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.mapper.PatientMapper">
+    <select id="GetPatientsByPatientName" resultType="Patient">
+        select *
+        from patient_tab
+        where patientname = #{patientName}
+    </select>
+
+    <insert id="NewPatient">
+        INSERT INTO patient_tab
+        (patientname, rootuser, realname,hospital,other)
+        VALUES
+        (#{patientName}, #{username}, #{realname},#{hospital}, #{other});
+    </insert>
+</mapper>

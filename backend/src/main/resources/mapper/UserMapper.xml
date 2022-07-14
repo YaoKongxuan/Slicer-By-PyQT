@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.mapper.UserMapper">
+
+    <select id="SearchUserPassword" resultType="String">
+        select password
+        from user_tab
+        where username = #{username}
+    </select>
+
+    <select id="SearchAllUser" resultType="User">
+        select *
+        from user_tab
+    </select>
+
+    <select id="SearchUserByUsername" resultType="User">
+        select *
+        from user_tab
+        where username = #{username}
+    </select>
+
+    <select id="NewUser">
+        INSERT INTO user_tab
+        (username,password,realname,hospital)
+        VALUES
+        (#{username}, #{pwd},#{realName},#{hospital})
+    </select>
+</mapper>

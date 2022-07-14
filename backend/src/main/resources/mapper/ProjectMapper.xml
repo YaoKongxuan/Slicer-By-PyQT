@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.backend.mapper.ProjectMapper">
+
+    <select id="GetProjectsByUsername" resultType="Project">
+        select *
+        from project_tab
+        where username = #{username}
+    </select>
+
+    <delete id="DelProjectByUsernameAndPatientnameAndProjectname">
+        DELETE FROM project_tab
+        WHERE username = #{username}
+        and patientname = #{patientname}
+        and projectname = #{projectname}
+    </delete>
+
+    <insert id="NewProjectByUsernameAndPatientnameAndProjectname">
+        INSERT INTO project_tab
+        (patientname, username, projectname,other)
+        VALUES
+        (#{patientname}, #{username}, #{projectname}, #{other});
+    </insert>
+
+</mapper>

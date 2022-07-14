@@ -1,0 +1,43 @@
+CREATE TABLE `user_tab` (
+`username` VARCHAR(20),
+`password` VARCHAR(20),
+`realname` VARCHAR(5),
+`hospital` VARCHAR(20),
+PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `user_tab`(`username`, `password`, `realname`,`hospital`) VALUES ("root", "yaokx", "姚孔轩","深圳先进院");
+
+
+CREATE TABLE `patient_tab` (
+`patientname` VARCHAR(20),
+`realname` VARCHAR(5),
+`hospital` VARCHAR(20),
+`rootuser` VARCHAR(20),
+`other` VARCHAR(100),
+PRIMARY KEY (`patientname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `patient_tab`(`patientname`, `realname`, `hospital`,`rootuser`,`other`) VALUES ("testpatinetB", "测试病人B", "毕业设计","1","鼻咽癌");
+
+CREATE TABLE `project_tab` (
+`id` INT UNSIGNED AUTO_INCREMENT,
+`patientname` VARCHAR(20),
+`username` VARCHAR(20),
+`projectname` VARCHAR(20),
+`other` VARCHAR(100),
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `project_tab`(`patientname`, `username`, `projectname`,`other`) VALUES ("testpatinetB", "root", "","测试01");
+
+CREATE TABLE `relationship_tab` (
+`id` INT UNSIGNED AUTO_INCREMENT,
+`patientname` VARCHAR(20),
+`username` VARCHAR(20),
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `relationship_tab`(`patientname`, `username`) VALUES ("testpatinetB", "biyesheji");

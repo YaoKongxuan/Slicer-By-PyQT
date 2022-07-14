@@ -1,0 +1,12 @@
+hadoop01:
+  web: web01
+  lat: 20
+  lon: 20
+hadoop02:
+  web: web02
+  lat: 30
+  lon: 28
+hadoop03:
+  web: web03
+  lat: -89
+  lon: -12
